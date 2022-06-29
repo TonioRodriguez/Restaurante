@@ -1,10 +1,10 @@
+import { Link } from 'react-router-dom'
 import React, {useState, useEffect,} from 'react';
 import {onSnapshot, collection, addDoc, deleteDoc, doc} from 'firebase/firestore';
-import {db} from './Firebase.js';
-import './App.css';
+import {db} from '../Firebase.js';
 import {TextField} from '@mui/material'
 
-const App = () => {
+const Reservacion = () => {
   const [clientes, setClientes] = useState([])
   const [form, setForm] = useState({})
    const getData = () => {
@@ -44,11 +44,13 @@ const deleteElement = async (id) => {
 
   return (
     
-    <div className="App">
-      <header className='App-header'>
-      <h1>
-          Firebase app
-        </h1>
+    <div>
+      <nav>
+      <Link to='/' >Home</Link>
+      <Link to='/reservacion'>Reservacion</Link>
+      <Link to='/contacto'>Contacto</Link>
+      <Link to='/Menu'>Menu</Link>
+      </nav>
         <div>
           <TextField
             id="outlined-name"
@@ -74,9 +76,9 @@ const deleteElement = async (id) => {
             })
           }
         </div>
-      </header>
     </div>
   );
 }
 
-export default App;
+
+export default Reservacion
